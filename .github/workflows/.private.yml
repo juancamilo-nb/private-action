@@ -1,19 +1,20 @@
 name: Private Action
 
 on:
-  workflow_dispatch:
+  workflow_call:
     inputs:
       username:
         required: true
+        type: string
       image:
         required: true
+        type: string
 
 jobs:
   run:
     runs-on: ubuntu-latest
     steps:
-      - name: Debug
-        run: |
-          echo "User: ${{ github.event.inputs.username }}"
-          echo "Image: ${{ github.event.inputs.image }}"
+      - run: |
+          echo "User: ${{ inputs.username }}"
+          echo "Image: ${{ inputs.image }}"
 
