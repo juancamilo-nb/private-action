@@ -1,0 +1,19 @@
+# .github/workflows/private.yml
+name: Private
+
+on:
+  workflow_dispatch:
+    inputs:
+      username:
+        required: true
+      image:
+        required: true
+
+jobs:
+  run:
+    runs-on: ubuntu-latest
+    steps:
+      - run: |
+          echo "User: ${{ github.event.inputs.username }}"
+          echo "Image: ${{ github.event.inputs.image }}"
+
